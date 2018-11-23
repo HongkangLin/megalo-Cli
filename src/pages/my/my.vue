@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-      Hello World!!
+      个人中心
   </div>
 </template>
 

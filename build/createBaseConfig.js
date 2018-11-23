@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 const createMegaloTarget = require( '@megalo/target' )
 const compiler = require( '@megalo/template-compiler' )
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
@@ -105,6 +107,16 @@ function createBaseConfig( platform = 'wechat' ) {
           ]
         },
 
+        {
+          test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            path: _.resolve( `dist-${platform}/` ),
+            name: './static/img/[name].[ext]'
+          }
+        }
+
       ]
     },
 
@@ -113,6 +125,12 @@ function createBaseConfig( platform = 'wechat' ) {
       new MiniCssExtractPlugin( {
         filename: `./static/css/[name].${cssExt}`,
       } ),
+
+      new CopyWebpackPlugin([{
+        from: _.resolve(__dirname, '../static'),
+        to: _.resolve(`dist-${platform}/static`),
+        ignore: ['.*']
+      }])
     ],
     stats:{
       env: true,

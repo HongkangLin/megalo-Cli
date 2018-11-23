@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "@megalo/vhtml-plugin": "^0.1.0",
+    "copy-webpack-plugin": "^4.6.0",
     "megalo": "^0.2.1",
-    "octoparse": "^0.2.0"
+    "octoparse": "^0.2.0",
+    "url-loader": "^1.1.2"
   }
 }
