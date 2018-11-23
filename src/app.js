@@ -12,12 +12,12 @@ export default {
   config: {
     // pages 的首个页面会被编译成首页
     pages: [
-      'pages/hello/hello'
+      'pages/index/index'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'megaloCli',
+      navigationBarTitleText: 'Hello World',
       navigationBarTextStyle: 'black'
     }
   }
